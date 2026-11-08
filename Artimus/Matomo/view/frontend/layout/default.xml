@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Artimus Code. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Artimus\Matomo\Block\Tracker"
+                   name="artimus.matomo.tracker"
+                   template="Artimus_Matomo::tracker.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Artimus\Matomo\ViewModel\TrackerConfig</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

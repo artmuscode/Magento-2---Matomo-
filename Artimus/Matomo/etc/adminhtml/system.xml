@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Artimus Code. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="artimus_matomo" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Matomo Analytics</label>
+            <tab>sales</tab>
+            <resource>Artimus_Matomo::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="tracker_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tracker URL</label>
+                    <comment>Browser-facing base URL of the Matomo instance, e.g. https://magento.test:8443/</comment>
+                    <validate>validate-url</validate>
+                    <depends>
+                        <field id="*/*/*/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="server_tracker_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Server-Side Tracker URL</label>
+                    <comment>Optional. The internal URL used by server-side requests, e.g. http://matomo/. Falls back to the Tracker URL when empty.</comment>
+                    <depends>
+                        <field id="*/*/*/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="site_id" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Site ID</label>
+                    <validate>validate-digits</validate>
+                    <depends>
+                        <field id="*/*/*/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="auth_token" translate="label" type="obscure" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Auth Token</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <depends>
+                        <field id="*/*/*/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="user_id_enabled" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable User ID Tracking</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/*/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

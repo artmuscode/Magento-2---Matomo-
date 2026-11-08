@@ -1,0 +1,10 @@
+<?php
+/**
+ * Copyright © Artimus Code. All rights reserved.
+ */
+
+/** @var \Artimus\Matomo\Block\Tracker $block */
+/** @var \Artimus\Matomo\ViewModel\TrackerConfig $viewModel */
+$viewModel = $block->getData('view_model');
+?>
+<script type="text/x-magento-init"><?= /* @noEscape */ $viewModel->getMageInitJson() ?></script>

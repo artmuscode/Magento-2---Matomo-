@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Artimus Code. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="artimus_matomo_resend_failed_order_tracking"
+             instance="Artimus\Matomo\Cron\ResendFailedOrderTracking"
+             method="execute">
+            <schedule>*/10 * * * *</schedule>
+        </job>
+    </group>
+</config>

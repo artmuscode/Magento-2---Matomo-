@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Artimus Code. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Artimus\Matomo\Api\ConfigInterface" type="Artimus\Matomo\Model\Config"/>
+    <preference for="Artimus\Matomo\Api\Data\OrderTrackingInterface" type="Artimus\Matomo\Model\OrderTracking"/>
+    <preference for="Artimus\Matomo\Api\Data\OrderTrackingSearchResultsInterface"
+                type="Artimus\Matomo\Model\OrderTrackingSearchResults"/>
+    <preference for="Artimus\Matomo\Api\OrderTrackingRepositoryInterface"
+                type="Artimus\Matomo\Model\OrderTrackingRepository"/>
+    <preference for="Artimus\Matomo\Api\ConsentCheckerInterface" type="Artimus\Matomo\Model\ConsentChecker"/>
+    <preference for="Artimus\Matomo\Api\UserIdHasherInterface" type="Artimus\Matomo\Model\UserIdHasher"/>
+    <preference for="Artimus\Matomo\Api\OrderTrackerInterface" type="Artimus\Matomo\Model\OrderTracker"/>
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="artimus_matomo/general/auth_token" xsi:type="string">1</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Csp\Model\CompositePolicyCollector">
+        <arguments>
+            <argument name="collectors" xsi:type="array">
+                <item name="matomo" xsi:type="object" sortOrder="10">Artimus\Matomo\Model\Csp\MatomoPolicyCollector</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Artimus Code. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <artimus_matomo>
+            <general>
+                <enabled>0</enabled>
+                <user_id_enabled>1</user_id_enabled>
+            </general>
+        </artimus_matomo>
+    </default>
+</config>
