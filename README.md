@@ -5,7 +5,7 @@ placed order. The browser reports page views, product and category views, search
 checkout steps. A queue worker sends each order from the server, so ad blockers can't lose revenue.
 Logged-in customers are linked with a hashed User ID and stay in one visit.
 
-Full documentation is in [`Artimus/Matomo`](docs/index.md).
+Full documentation is in [`Artimus/Matomo`](Artimus/Matomo/docs/index.md).
 
 ## Requirements
 
